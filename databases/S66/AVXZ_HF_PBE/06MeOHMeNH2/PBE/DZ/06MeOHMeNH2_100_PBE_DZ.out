@@ -1,0 +1,691 @@
+
+ Primary working directories    : /scratch/sirous/88/molpro.lKTFzsVzk3
+ Secondary working directories  : /scratch/sirous/88/molpro.lKTFzsVzk3
+ Wavefunction directory         : /scratch/sirous/88/
+ Main file repository           : /scratch/sirous/88/molpro.lKTFzsVzk3/
+
+ id        : karlovklimes
+
+ Nodes                      nprocs
+ nc-01.cc.karlov.mff.cuni.cz   12
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=sf  
+
+
+ Variables initialized (934), CPU time= 0.01 sec
+ ***,CH3C6H4CN+CF3CN+BF3
+ memory,500,m
+ gdirect
+ gthresh,energy=1.d-8,twoint=1.d-15,oneint=1.d-15,zero=1.d-15,orbital=1.d-8,grid=1.d-8
+ symmetry,nosym
+ geomtyp=xyz
+                                                                                 ! Geometry
+ geometry={
+ O1        -0.706920192    0.045830367     0.006386104
+ H1        0.265623615    0.071710143     0.001339293
+ C1        -1.076670667    -1.313915813     0.001614280
+ H2        -2.162923576    -1.363195770     0.005865424
+ H3        -0.723405945    -1.844651676     -0.887743498
+ H4        -0.716079778    -1.852820828     0.883079775
+ N1        2.231913573    -0.038132577     -0.003412437
+ H5        2.602533125    0.469643929     0.789719954
+ H6        2.602656413    0.426205990     -0.822671271
+ C2        2.709665509    -1.424166024     0.034048768
+ H7        2.317780672    -1.958191301     -0.828142961
+ H8        3.796376665    -1.530901192     0.037083263
+ H9        2.317539108    -1.910896193     0.923680915
+ }
+ 
+ 
+ 
+ basis=avdz
+ 
+ 
+ 
+                                                                                 ! Dimer Calculation
+ {rks,pbe,accu=1.d-8;orbital,2101.2}
+ eab_PBE=energy
+ 
+ 
+                                                                                 !monomer A
+ dummy,7,8,9,10,11,12,13;                                                        ! NOW MONOMER B IS DUMMY
+ {rks,pbe,accu=1.d-8;orbital,2201.2}
+ ea_PBE=energy
+                                                                                 !monomer B
+ dummy,1,2,3,4,5,6;                                                              !NOW MONOMER A IS DUMMY
+ {rks,pbe,accu=1.d-8;orbital,2301.2}
+ eb_PBE=energy
+ 
+ E_AB_int=eab_PBE-ea_PBE-eb_PBE
+ 
+ 
+ text,results in hartree
+ show,E_AB_int
+ 
+ Commands  initialized (763), CPU time= 0.02 sec, 617 directives.
+ Default parameters read. Elapsed time= 0.19 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2019.2 linked Jun  8 2019 11:26:33
+
+
+ **********************************************************************************************************************************
+ LABEL *   CH3C6H4CN+CF3CN+BF3                                                           
+  64 bit mpp version                                                                     DATE: 03-Jul-20          TIME: 09:27:53  
+ **********************************************************************************************************************************
+
+ SHA1:             8135a10abc80eafa5b3ae28ffc55be4890dc4c84
+ **********************************************************************************************************************************
+
+ THRESHOLDS:
+
+ ZERO    =  1.00D-15  ONEINT  =  1.00D-15  TWOINT  =  1.00D-15  PREFAC  =  1.00D-14  XXXXXX  =  1.00D-09  EORDER  =  1.00D-04
+ ENERGY  =  1.00D-08  ETEST   =  0.00D+00  EDENS   =  0.00D+00  THRDEDEF=  1.00D-06  GRADIENT=  1.00D-02  STEP    =  1.00D-03
+ ORBITAL =  1.00D-08  CIVEC   =  1.00D-05  COEFF   =  1.00D-04  PRINTCI =  5.00D-02  PUNCHCI =  9.90D+01  OPTGRAD =  3.00D-04
+ OPTENERG=  1.00D-06  OPTSTEP =  3.00D-04  THRGRAD =  1.00D-10  COMPRESS=  1.00D-11  VARMIN  =  1.00D-07  VARMAX  =  1.00D-03
+ THRDOUB =  0.00D+00  THRDIV  =  1.00D-05  THRRED  =  1.00D-07  THRPSP  =  1.00D+00  THRDC   =  1.00D-10  THRCS   =  1.00D-10
+ THRNRM  =  1.00D-08  THREQ   =  0.00D+00  THRDE   =  1.00D+00  THRREF  =  1.00D-05  SPARFAC =  1.00D+00  THRDLP  =  1.00D-07
+ THRDIA  =  1.00D-10  THRDLS  =  1.00D-07  THRGPS  =  0.00D+00  THRKEX  =  0.00D+00  THRDIS  =  2.00D-01  THRVAR  =  1.00D-10
+ THRLOC  =  1.00D-06  THRGAP  =  1.00D-06  THRLOCT = -1.00D+00  THRGAPT = -1.00D+00  THRORB  =  1.00D-06  THRMLTP =  0.00D+00
+ THRCPQCI=  1.00D-10  KEXTA   =  0.00D+00  THRCOARS=  0.00D+00  SYMTOL  =  1.00D-06  GRADTOL =  1.00D-06  THROVL  =  1.00D-08
+ THRORTH =  1.00D-08  GRID    =  1.00D-08  GRIDMAX =  1.00D-03  DTMAX   =  0.00D+00  THROCCDE=  1.00D-01  THROCCDE=  1.00D-01
+ THRPRINT=  2.50D-01
+
+
+ Variable memory set to  500000000 words,  buffer space 
+
+ SETTING GEOMTYP        =    XYZ
+ ZSYMEL=NOSYM
+
+ SETTING BASIS          =    AVDZ
+
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+ Library entry O      S aug-cc-pVDZ          selected for orbital group  1
+ Library entry O      P aug-cc-pVDZ          selected for orbital group  1
+ Library entry O      D aug-cc-pVDZ          selected for orbital group  1
+ Library entry H      S aug-cc-pVDZ          selected for orbital group  2
+ Library entry H      P aug-cc-pVDZ          selected for orbital group  2
+ Library entry C      S aug-cc-pVDZ          selected for orbital group  3
+ Library entry C      P aug-cc-pVDZ          selected for orbital group  3
+ Library entry C      D aug-cc-pVDZ          selected for orbital group  3
+ Library entry N      S aug-cc-pVDZ          selected for orbital group  5
+ Library entry N      P aug-cc-pVDZ          selected for orbital group  5
+ Library entry N      D aug-cc-pVDZ          selected for orbital group  5
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+
+ Point group  C1  
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  O1      8.00   -1.335885555    0.086606842    0.012067988
+   2  H1      1.00    0.501955885    0.135512531    0.002530897
+   3  C1      6.00   -2.034612687   -2.482941037    0.003050547
+   4  H2      1.00   -4.087333187   -2.576066659    0.011084045
+   5  H3      1.00   -1.367039113   -3.485886463   -1.677592080
+   6  H4      1.00   -1.353194664   -3.501323923    1.668778921
+   7  N1      7.00    4.217705387   -0.072060127   -0.006448571
+   8  H5      1.00    4.918074836    0.887498402    1.492354428
+   9  H6      1.00    4.918307817    0.805412594   -1.554623393
+  10  C2      6.00    5.120525701   -2.691283741    0.064342846
+  11  H7      1.00    4.379970687   -3.700445258   -1.564963388
+  12  H8      1.00    7.174112163   -2.892983977    0.070077211
+  13  H9      1.00    4.379514197   -3.611070457    1.745503956
+
+ Bond lengths in Bohr (Angstrom)
+
+ 1-2  1.838516761  1-3  2.662870110  3-4  2.054847530  3-5  2.067876603  3-6  2.067869735
+     ( 0.972901172)     ( 1.409130178)     ( 1.087378485)     ( 1.094273173)     ( 1.094269539)
+
+  7- 8  1.912506305   7- 9  1.912497691   7-10  2.771358563  10-11  2.054621012  10-12  2.063476005
+       ( 1.012054752)       ( 1.012050194)       ( 1.466539795)       ( 1.087258617)       ( 1.091944477)
+
+ 10-13  2.054606611
+       ( 1.087250996)
+
+ Bond angles
+
+  1-3-4  107.80889360   1-3-5  112.70939660   1-3-6  112.70742448   2-1-3  106.73530620
+
+  4- 3- 5  107.67954830   4- 3- 6  107.68099728   5- 3- 6  108.02575013   7-10-11  109.05828427
+
+  7-10-12  114.62388023   7-10-13  109.05680439   8- 7- 9  105.66707883   8- 7-10  109.56459378
+
+  9- 7-10  109.57028935  11-10-12  108.23406660  11-10-13  107.39674280  12-10-13  108.23392760
+
+ NUCLEAR CHARGE:                   36
+ NUMBER OF PRIMITIVE AOS:         247
+ NUMBER OF SYMMETRY AOS:          239
+ NUMBER OF CONTRACTIONS:          173   (  173A   )
+ NUMBER OF CORE ORBITALS:           4   (    4A   )
+ NUMBER OF VALENCE ORBITALS:       25   (   25A   )
+
+
+ NUCLEAR REPULSION ENERGY  131.39408340
+
+
+ Eigenvalues of metric
+
+         1 0.192E-03 0.278E-03 0.358E-03 0.537E-03 0.632E-03 0.679E-03 0.700E-03 0.830E-03
+
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      18       31.29       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1700   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+ PROGRAMS   *        TOTAL       INT
+ CPU TIMES  *         0.86      0.67
+ REAL TIME  *         1.68 SEC
+ DISK USED  *        31.81 MB (local),      381.68 MB (total)
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+
+ Density functional group PBE=PBEX+PBEC
+ Functional: PBEX(Automatically generated (new) PBEX)                          Gradient terms: 1
+ Functional: PBEC(Automatically generated (new) PBEC)                          Gradient terms: 1
+ Use libxcgrid:  F
+ Use grid at  1800.2
+
+ Functional: PBEX                      Factor:  1.0000
+ Functional: PBEC                      Factor:  1.0000
+
+ Generated new metagrid on record  1800.2 with target accuracy 1.0D-08 and 106854 points in CPU time    0.2
+ Computed new grid on record 1800.1 in CPU time    0.3
+  141727 words reserved for DFT integration
+
+ PROGRAM * RKS-SCF (Restricted closed shell Kohn-Sham)     Authors: W. Meyer, H.-J. Werner, P.J. Knowles, 1993
+
+ NUMBER OF ELECTRONS:      18+   18-    SPACE SYMMETRY=1    SPIN SYMMETRY: Singlet 
+ CONVERGENCE THRESHOLDS:    1.00E-04 (Density)    1.00E-08 (Energy)
+ INTEGRAL THRESHOLDS:       1.00E-11 (Initial)    1.00E-11 (Final)
+ MAX. NUMBER OF ITERATIONS:       60
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                  0.00 (CLOSED)  0.00 (OPEN) 
+
+
+
+ Use fine grid record 1800.2 for energy threshold  1.0D-08
+ Orbital guess generated from atomic densities. Full valence occupancy:   29
+
+ Molecular orbital dump at record        2101.2
+
+ Initial occupancy:  18
+
+ Direct Fock-matrix evaluation.        Authors: Roland Lindh & Martin Schuetz (1993/96)
+
+ Integral Threshold:                  0.1D-10
+ Threshold for writing integrals:     0.1D-06
+ Prescreening on density matrix:        ON 
+ Calculation will be performed fully direct        
+
+ ITERATION   DDIFF            GRAD            ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   CPU(IT)  CPU(TOT)
+    1      0.000D+00      0.000D+00      -211.15176418    479.907709    1.75781   -0.62765   -0.00968    0      4.3      7.4     start
+    2      0.000D+00      0.838D-02      -210.75389456    442.143219    0.48470    0.18571    0.00533    1      2.3      9.7     diag
+    3      0.262D-01      0.149D-01      -211.34029159    467.088869    1.41125   -0.58951   -0.00421    2      2.3     12.0     diag
+    4      0.162D-01      0.190D-02      -211.34769019    466.534520    1.35431   -0.35947   -0.00456    3      2.3     14.3     diag
+    5      0.246D-02      0.714D-03      -211.34878170    466.271979    1.35788   -0.40330   -0.00474    4      2.3     16.6     diag
+    6      0.780D-03      0.195D-03      -211.34884937    466.322252    1.35875   -0.40208   -0.00446    5      2.3     18.8     diag
+    7      0.248D-03      0.985D-04      -211.34887208    466.331529    1.35738   -0.40308   -0.00456    6      2.3     21.1     diag
+    8      0.991D-04      0.860D-05      -211.34887226    466.339018    1.35802   -0.40404   -0.00455    7      2.3     23.4     diag
+    9      0.131D-04      0.236D-05      -211.34887228    466.340681    1.35803   -0.40380   -0.00455    8      2.2     25.6     diag
+   10      0.321D-05      0.369D-06      -211.34887228    466.340636    1.35798   -0.40377   -0.00455    0      2.2     27.8     orth
+
+ Final occupancy:  18
+
+ !RKS STATE  1.1 Energy              -211.348872276984
+ Nuclear energy                       131.39408340
+ One-electron energy                 -546.47924389
+ Two-electron energy                  233.17031812
+ Density functional                   -29.43402991     PBEX=-28.26898487 PBEC= -1.16504504
+ Virial quotient                       -1.00588066
+ !RKS STATE  1.1 Dipole moment          1.35798108    -0.40377077    -0.00455463
+ Dipole moment /Debye                   3.45141755    -1.02621570    -0.01157594
+
+ Orbital energies:
+
+         1.1          2.1          3.1          4.1          5.1          6.1          7.1          8.1          9.1         10.1
+    -18.736551   -14.009967    -9.924779    -9.911904    -0.906409    -0.827593    -0.617937    -0.594822    -0.464330    -0.435968
+
+        11.1         12.1         13.1         14.1         15.1         16.1         17.1         18.1         19.1         20.1
+     -0.415173    -0.376887    -0.369059    -0.356854    -0.342852    -0.272867    -0.225458    -0.199943    -0.032606    -0.009593
+
+
+ HOMO     18.1    -0.199943 =      -5.4407eV
+ LUMO     19.1    -0.032606 =      -0.8873eV
+ LUMO-HOMO         0.167336 =       4.5535eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       31.29       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1700     1800   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    OPER     GRID   
+
+              2       5        3.59       700     1000      520     1800     2101   
+                                         GEOM     BASIS   MCVARS    GRID      RKS  
+
+ PROGRAMS   *        TOTAL   RKS-SCF       INT
+ CPU TIMES  *        29.00     28.14      0.67
+ REAL TIME  *        31.37 SEC
+ DISK USED  *        36.99 MB (local),      443.86 MB (total)
+ SF USED    *         0.36 MB
+ GA USED    *         3.49 MB       (max)       3.48 MB       (current)
+ **********************************************************************************************************************************
+ SETTING EAB_PBE        =      -211.34887228  AU                              
+
+ Dummy atoms: N1  H5  H6  C2  H7  H8  H9
+
+
+ Recomputing one-electron integrals since nuclear charges changed
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+
+ Point group  C1  
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  O1      8.00   -1.335885555    0.086606842    0.012067988
+   2  H1      1.00    0.501955885    0.135512531    0.002530897
+   3  C1      6.00   -2.034612687   -2.482941037    0.003050547
+   4  H2      1.00   -4.087333187   -2.576066659    0.011084045
+   5  H3      1.00   -1.367039113   -3.485886463   -1.677592080
+   6  H4      1.00   -1.353194664   -3.501323923    1.668778921
+   7  N1      0.00    4.217705387   -0.072060127   -0.006448571
+   8  H5      0.00    4.918074836    0.887498402    1.492354428
+   9  H6      0.00    4.918307817    0.805412594   -1.554623393
+  10  C2      0.00    5.120525701   -2.691283741    0.064342846
+  11  H7      0.00    4.379970687   -3.700445258   -1.564963388
+  12  H8      0.00    7.174112163   -2.892983977    0.070077211
+  13  H9      0.00    4.379514197   -3.611070457    1.745503956
+
+ Bond lengths in Bohr (Angstrom)
+
+ 1-2  1.838516761  1-3  2.662870110  3-4  2.054847530  3-5  2.067876603  3-6  2.067869735
+     ( 0.972901172)     ( 1.409130178)     ( 1.087378485)     ( 1.094273173)     ( 1.094269539)
+
+  7- 8  1.912506305   7- 9  1.912497691   7-10  2.771358563  10-11  2.054621012  10-12  2.063476005
+       ( 1.012054752)       ( 1.012050194)       ( 1.466539795)       ( 1.087258617)       ( 1.091944477)
+
+ 10-13  2.054606611
+       ( 1.087250996)
+
+ Bond angles
+
+  1-3-4  107.80889360   1-3-5  112.70939660   1-3-6  112.70742448   2-1-3  106.73530620
+
+  4- 3- 5  107.67954830   4- 3- 6  107.68099728   5- 3- 6  108.02575013   7-10-11  109.05828427
+
+  7-10-12  114.62388023   7-10-13  109.05680439   8- 7- 9  105.66707883   8- 7-10  109.56459378
+
+  9- 7-10  109.57028935  11-10-12  108.23406660  11-10-13  107.39674280  12-10-13  108.23392760
+
+ NUCLEAR CHARGE:                   18
+ NUMBER OF PRIMITIVE AOS:         247
+ NUMBER OF SYMMETRY AOS:          239
+ NUMBER OF CONTRACTIONS:          173   (  173A   )
+ NUMBER OF CORE ORBITALS:           2   (    2A   )
+ NUMBER OF VALENCE ORBITALS:       12   (   12A   )
+
+ MOLECULE CHANGED: INITIALIZING OCCUPATION AND DUMP RECORDS
+
+
+ NUCLEAR REPULSION ENERGY   40.42467095
+
+
+ Eigenvalues of metric
+
+         1 0.192E-03 0.278E-03 0.358E-03 0.537E-03 0.632E-03 0.679E-03 0.700E-03 0.830E-03
+
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       31.29       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1700     1800   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    OPER     GRID   
+
+              2       5        3.59       700     1000      520     1800     2101   
+                                         GEOM     BASIS   MCVARS    GRID      RKS  
+
+ PROGRAMS   *        TOTAL       INT   RKS-SCF       INT
+ CPU TIMES  *        29.07      0.07     28.14      0.67
+ REAL TIME  *        31.50 SEC
+ DISK USED  *        36.99 MB (local),      443.86 MB (total)
+ SF USED    *         0.36 MB
+ GA USED    *         3.49 MB       (max)       3.48 MB       (current)
+ **********************************************************************************************************************************
+
+ Density functional group PBE=PBEX+PBEC
+ Functional: PBEX(Automatically generated (new) PBEX)                          Gradient terms: 1
+ Functional: PBEC(Automatically generated (new) PBEC)                          Gradient terms: 1
+ Use libxcgrid:  F
+ Use grid at  1800.2
+
+ Functional: PBEX                      Factor:  1.0000
+ Functional: PBEC                      Factor:  1.0000
+
+ Generated new metagrid on record  1800.2 with target accuracy 1.0D-08 and 106854 points in CPU time    0.2
+ Computed new grid on record 1800.1 in CPU time    0.2
+  141727 words reserved for DFT integration
+
+ PROGRAM * RKS-SCF (Restricted closed shell Kohn-Sham)     Authors: W. Meyer, H.-J. Werner, P.J. Knowles, 1993
+
+ NUMBER OF ELECTRONS:       9+    9-    SPACE SYMMETRY=1    SPIN SYMMETRY: Singlet 
+ CONVERGENCE THRESHOLDS:    1.00E-04 (Density)    1.00E-08 (Energy)
+ INTEGRAL THRESHOLDS:       1.00E-11 (Initial)    1.00E-11 (Final)
+ MAX. NUMBER OF ITERATIONS:       60
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                  0.00 (CLOSED)  0.00 (OPEN) 
+
+
+
+ Use fine grid record 1800.2 for energy threshold  1.0D-08
+ Orbital guess generated from atomic densities. Full valence occupancy:   14
+
+ Molecular orbital dump at record        2201.2
+
+ Initial occupancy:   9
+
+ Direct Fock-matrix evaluation.        Authors: Roland Lindh & Martin Schuetz (1993/96)
+
+ Integral Threshold:                  0.1D-10
+ Threshold for writing integrals:     0.1D-06
+ Prescreening on density matrix:        ON 
+ Calculation will be performed fully direct        
+
+ ITERATION   DDIFF            GRAD            ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   CPU(IT)  CPU(TOT)
+    1      0.000D+00      0.000D+00      -115.50979461    199.108573    0.69070   -0.69447   -0.00720    0      4.2      8.5     start
+    2      0.000D+00      0.781D-02      -115.31197757    180.893660   -0.18974    0.10701    0.00138    1      2.3     10.8     diag
+    3      0.172D-01      0.148D-01      -115.59274179    192.973797    0.42240   -0.58024   -0.00522    2      2.3     13.1     diag
+    4      0.104D-01      0.206D-02      -115.59766901    192.752676    0.41234   -0.45928   -0.00458    3      2.3     15.3     diag
+    5      0.189D-02      0.581D-03      -115.59807481    192.648052    0.41175   -0.46725   -0.00462    4      2.2     17.6     diag
+    6      0.477D-03      0.905D-04      -115.59808532    192.672137    0.40985   -0.47015   -0.00462    5      2.3     19.8     diag
+    7      0.621D-04      0.117D-04      -115.59808550    192.679905    0.41091   -0.47081   -0.00463    6      2.2     22.1     diag
+    8      0.111D-04      0.135D-05      -115.59808550    192.680397    0.41064   -0.47076   -0.00463    7      2.2     24.3     diag
+    9      0.175D-05      0.260D-06      -115.59808550    192.680405    0.41072   -0.47076   -0.00463    0      2.2     26.5     orth
+
+ Final occupancy:   9
+
+ !RKS STATE  1.1 Energy              -115.598085498390
+ Nuclear energy                        40.42467095
+ One-electron energy                 -237.01569390
+ Two-electron energy                   96.34020250
+ Density functional                   -15.34726505     PBEX=-14.76334280 PBEC= -0.58392226
+ Virial quotient                       -1.00578439
+ !RKS STATE  1.1 Dipole moment          0.41071826    -0.47076219    -0.00462856
+ Dipole moment /Debye                   1.04387331    -1.19647976    -0.01176386
+
+ Orbital energies:
+
+         1.1          2.1          3.1          4.1          5.1          6.1          7.1          8.1          9.1         10.1
+    -18.777208    -9.932726    -0.942295    -0.619674    -0.462546    -0.391156    -0.382624    -0.295376    -0.230257    -0.025895
+
+        11.1
+     -0.000919
+
+
+ HOMO      9.1    -0.230257 =      -6.2656eV
+ LUMO     10.1    -0.025895 =      -0.7046eV
+ LUMO-HOMO         0.204362 =       5.5610eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       31.29       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1700     1800   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    OPER     GRID   
+
+              2       6        7.28       700     1000      520     1800     2101     2201   
+                                         GEOM     BASIS   MCVARS    GRID      RKS      RKS  
+
+ PROGRAMS   *        TOTAL   RKS-SCF       INT   RKS-SCF       INT
+ CPU TIMES  *        55.87     26.80      0.07     28.14      0.67
+ REAL TIME  *        58.49 SEC
+ DISK USED  *        40.56 MB (local),      486.77 MB (total)
+ SF USED    *         0.36 MB
+ GA USED    *         3.49 MB       (max)       3.48 MB       (current)
+ **********************************************************************************************************************************
+ SETTING EA_PBE         =      -115.59808550  AU                              
+
+ Dummy atoms: O1  H1  C1  H2  H3  H4
+
+
+ Recomputing one-electron integrals since nuclear charges changed
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+
+ Point group  C1  
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  O1      0.00   -1.335885555    0.086606842    0.012067988
+   2  H1      0.00    0.501955885    0.135512531    0.002530897
+   3  C1      0.00   -2.034612687   -2.482941037    0.003050547
+   4  H2      0.00   -4.087333187   -2.576066659    0.011084045
+   5  H3      0.00   -1.367039113   -3.485886463   -1.677592080
+   6  H4      0.00   -1.353194664   -3.501323923    1.668778921
+   7  N1      7.00    4.217705387   -0.072060127   -0.006448571
+   8  H5      1.00    4.918074836    0.887498402    1.492354428
+   9  H6      1.00    4.918307817    0.805412594   -1.554623393
+  10  C2      6.00    5.120525701   -2.691283741    0.064342846
+  11  H7      1.00    4.379970687   -3.700445258   -1.564963388
+  12  H8      1.00    7.174112163   -2.892983977    0.070077211
+  13  H9      1.00    4.379514197   -3.611070457    1.745503956
+
+ Bond lengths in Bohr (Angstrom)
+
+ 1-2  1.838516761  1-3  2.662870110  3-4  2.054847530  3-5  2.067876603  3-6  2.067869735
+     ( 0.972901172)     ( 1.409130178)     ( 1.087378485)     ( 1.094273173)     ( 1.094269539)
+
+  7- 8  1.912506305   7- 9  1.912497691   7-10  2.771358563  10-11  2.054621012  10-12  2.063476005
+       ( 1.012054752)       ( 1.012050194)       ( 1.466539795)       ( 1.087258617)       ( 1.091944477)
+
+ 10-13  2.054606611
+       ( 1.087250996)
+
+ Bond angles
+
+  1-3-4  107.80889360   1-3-5  112.70939660   1-3-6  112.70742448   2-1-3  106.73530620
+
+  4- 3- 5  107.67954830   4- 3- 6  107.68099728   5- 3- 6  108.02575013   7-10-11  109.05828427
+
+  7-10-12  114.62388023   7-10-13  109.05680439   8- 7- 9  105.66707883   8- 7-10  109.56459378
+
+  9- 7-10  109.57028935  11-10-12  108.23406660  11-10-13  107.39674280  12-10-13  108.23392760
+
+ NUCLEAR CHARGE:                   18
+ NUMBER OF PRIMITIVE AOS:         247
+ NUMBER OF SYMMETRY AOS:          239
+ NUMBER OF CONTRACTIONS:          173   (  173A   )
+ NUMBER OF CORE ORBITALS:           2   (    2A   )
+ NUMBER OF VALENCE ORBITALS:       13   (   13A   )
+
+ MOLECULE CHANGED: INITIALIZING OCCUPATION AND DUMP RECORDS
+
+
+ NUCLEAR REPULSION ENERGY   42.05202864
+
+
+ Eigenvalues of metric
+
+         1 0.192E-03 0.278E-03 0.358E-03 0.537E-03 0.632E-03 0.679E-03 0.700E-03 0.830E-03
+
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       31.29       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1700     1800   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    OPER     GRID   
+
+              2       6        7.28       700     1000      520     1800     2101     2201   
+                                         GEOM     BASIS   MCVARS    GRID      RKS      RKS  
+
+ PROGRAMS   *        TOTAL       INT   RKS-SCF       INT   RKS-SCF       INT
+ CPU TIMES  *        55.95      0.07     26.80      0.07     28.14      0.67
+ REAL TIME  *        58.62 SEC
+ DISK USED  *        40.56 MB (local),      486.77 MB (total)
+ SF USED    *         0.36 MB
+ GA USED    *         3.49 MB       (max)       3.48 MB       (current)
+ **********************************************************************************************************************************
+
+ Density functional group PBE=PBEX+PBEC
+ Functional: PBEX(Automatically generated (new) PBEX)                          Gradient terms: 1
+ Functional: PBEC(Automatically generated (new) PBEC)                          Gradient terms: 1
+ Use libxcgrid:  F
+ Use grid at  1800.2
+
+ Functional: PBEX                      Factor:  1.0000
+ Functional: PBEC                      Factor:  1.0000
+
+ Generated new metagrid on record  1800.2 with target accuracy 1.0D-08 and 106854 points in CPU time    0.2
+ Computed new grid on record 1800.1 in CPU time    0.3
+  141727 words reserved for DFT integration
+
+ PROGRAM * RKS-SCF (Restricted closed shell Kohn-Sham)     Authors: W. Meyer, H.-J. Werner, P.J. Knowles, 1993
+
+ NUMBER OF ELECTRONS:       9+    9-    SPACE SYMMETRY=1    SPIN SYMMETRY: Singlet 
+ CONVERGENCE THRESHOLDS:    1.00E-04 (Density)    1.00E-08 (Energy)
+ INTEGRAL THRESHOLDS:       1.00E-11 (Initial)    1.00E-11 (Final)
+ MAX. NUMBER OF ITERATIONS:       60
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                  0.00 (CLOSED)  0.00 (OPEN) 
+
+
+
+ Use fine grid record 1800.2 for energy threshold  1.0D-08
+ Orbital guess generated from atomic densities. Full valence occupancy:   15
+
+ Molecular orbital dump at record        2301.2
+
+ Initial occupancy:   9
+
+ Direct Fock-matrix evaluation.        Authors: Roland Lindh & Martin Schuetz (1993/96)
+
+ Integral Threshold:                  0.1D-10
+ Threshold for writing integrals:     0.1D-06
+ Prescreening on density matrix:        ON 
+ Calculation will be performed fully direct        
+
+ ITERATION   DDIFF            GRAD            ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   CPU(IT)  CPU(TOT)
+    1      0.000D+00      0.000D+00       -95.61686842    182.842558    0.82929    0.08112   -0.00211    0      4.2      8.6     start
+    2      0.000D+00      0.893D-02       -95.32980819    162.390168   -0.22138   -0.19268    0.00491    1      2.3     10.8     diag
+    3      0.210D-01      0.163D-01       -95.73509639    175.961171    0.60173   -0.04237    0.00121    2      2.3     13.1     diag
+    4      0.136D-01      0.175D-02       -95.73856571    175.700612    0.50760    0.03638   -0.00094    3      2.3     15.4     diag
+    5      0.190D-02      0.747D-03       -95.73930765    175.566060    0.51995    0.01495   -0.00036    4      2.2     17.6     diag
+    6      0.672D-03      0.119D-03       -95.73932743    175.580250    0.51943    0.01431   -0.00034    5      2.3     19.9     diag
+    7      0.878D-04      0.121D-04       -95.73932766    175.588970    0.52059    0.01400   -0.00033    6      2.2     22.1     diag
+    8      0.152D-04      0.109D-05       -95.73932766    175.589093    0.52032    0.01415   -0.00034    7      2.2     24.3     diag
+    9      0.191D-05      0.227D-06       -95.73932766    175.589155    0.52040    0.01414   -0.00034    0      2.2     26.5     orth
+
+ Final occupancy:   9
+
+ !RKS STATE  1.1 Energy               -95.739327662123
+ Nuclear energy                        42.05202864
+ One-electron energy                 -211.51749023
+ Two-electron energy                   87.79457758
+ Density functional                   -14.06844365     PBEX=-13.49253395 PBEC= -0.57590970
+ Virial quotient                       -1.00620498
+ !RKS STATE  1.1 Dipole moment          0.52040368     0.01413811    -0.00033805
+ Dipole moment /Debye                   1.32264760     0.03593314    -0.00085918
+
+ Orbital energies:
+
+         1.1          2.1          3.1          4.1          5.1          6.1          7.1          8.1          9.1         10.1
+    -13.982243    -9.906844    -0.801951    -0.597630    -0.440607    -0.394456    -0.357990    -0.323968    -0.199569    -0.021858
+
+        11.1
+      0.003212
+
+
+ HOMO      9.1    -0.199569 =      -5.4306eV
+ LUMO     10.1    -0.021858 =      -0.5948eV
+ LUMO-HOMO         0.177711 =       4.8358eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       31.29       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1700     1800   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    OPER     GRID   
+
+              2       7       10.98       700     1000      520     1800     2101     2201     2301   
+                                         GEOM     BASIS   MCVARS    GRID      RKS      RKS      RKS  
+
+ PROGRAMS   *        TOTAL   RKS-SCF       INT   RKS-SCF       INT   RKS-SCF       INT
+ CPU TIMES  *        82.82     26.87      0.07     26.80      0.07     28.14      0.67
+ REAL TIME  *        85.67 SEC
+ DISK USED  *        44.26 MB (local),      531.11 MB (total)
+ SF USED    *         0.36 MB
+ GA USED    *         3.49 MB       (max)       3.48 MB       (current)
+ **********************************************************************************************************************************
+ SETTING EB_PBE         =       -95.73932766  AU                              
+ SETTING E_AB_INT       =        -0.01145912  AU                              
+
+ *** results in hartree
+ E_AB_INT         =        -0.01145912 AU
+ Molecular orbitals read from record     2301.2  Type=RKS/CANONICAL (state 1.1)
+ Occupation numbers read from record     2301.2  Type=RKS/RHF (state 1.1)
+ Orbital energies read from record       2301.2  Type=RKS/CANONICAL (state 1.1)
+ Redundancy group numbers read from rec  2301.2  Type=RKS/RHF (state 1.1)
+
+ RPBE/aug-cc-pVDZ energy=    -95.739327662123
+
+         RKS-SCF         RKS-SCF         RKS-SCF
+    -95.73932766   -115.59808550   -211.34887228
+ **********************************************************************************************************************************
+ Molpro calculation terminated
